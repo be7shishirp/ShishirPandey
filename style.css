@@ -1,33 +1,38 @@
-/* style.css - animations and visual spice */
-/* Logo entry animation & subtle zoom/pulse */
-#logo{animation:logo-entry 1.6s cubic-bezier(.2,.9,.2,1) forwards, logo-pulse 6s ease-in-out infinite 2s}
-@keyframes logo-entry{0%{opacity:0; transform:translateY(-40px) scale(.3) rotate(-8deg) } 60%{transform:translateY(8px) scale(1.08) rotate(2deg); opacity:1}100%{transform:translateY(0) scale(1) rotate(0)}}
-@keyframes logo-pulse{0%,100%{filter:drop-shadow(0 0 0 rgba(255,255,255,0))}50%{filter:drop-shadow(0 10px 30px rgba(59,130,246,0.14))}}
+/* style.css — animation, visual flair, rainbow heading */
+/* Rainbow animated text */
+#rainbow-heading{
+  background:linear-gradient(90deg,#ff3cac, #7843ff, #25a3ff, #2beaa9, #ffd86b);
+  -webkit-background-clip: text; background-clip: text; color:transparent;
+  animation: hueShift 6s linear infinite;
+  display:inline-block;
+  padding:8px 14px;border-radius:12px;backdrop-filter: blur(6px);
+  transition:transform .8s cubic-bezier(.22,.9,.3,1), box-shadow .4s;
+}
+@keyframes hueShift{0%{filter:hue-rotate(0deg)}50%{filter:hue-rotate(180deg)}100%{filter:hue-rotate(360deg)}}
 
-/* Name rainbow shimmer effect (animated gradient sweep) */
-.rainbow{background-size:200% 100%; animation:rainbow 3.6s linear infinite}
-@keyframes rainbow{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.logo-wrap img{animation:logoIntro 1.6s cubic-bezier(.2,.9,.3,1) both, logoFloat 6s ease-in-out infinite 2s}
+@keyframes logoIntro{0%{transform:scale(.3) rotate(-28deg);opacity:0}60%{transform:scale(1.03) rotate(6deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes logoFloat{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
 
-/* Search profile pic slide-in */
-#search-pic{animation:search-pop .9s cubic-bezier(.2,.9,.2,1)}
-@keyframes search-pop{0%{opacity:0; transform:translateX(12px) scale(.6)}100%{opacity:1; transform:none}}
+/* glow after appear */
+.logo-wrap{box-shadow:0 6px 40px rgba(58,135,255,0.14), inset 0 0 40px rgba(255,255,255,0.02)}
+.logo-wrap img.glow{filter:drop-shadow(0 6px 18px rgba(120,80,255,0.25));}
 
-/* Age live counter glow */
-.age-live{margin-top:12px; padding:10px; border-radius:8px; display:inline-block; font-weight:700; background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow:0 6px 24px rgba(106,90,205,0.06);}
-.age-live.glow{animation:age-glow 2.2s ease-in-out infinite}
-@keyframes age-glow{0%{box-shadow:0 3px 12px rgba(106,90,205,0.03)}50%{box-shadow:0 10px 48px rgba(106,90,205,0.18)}100%{box-shadow:0 3px 12px rgba(106,90,205,0.03)}}
+/* floating-paper effect for nav scroll */
+.card{transform-origin:center;transition:transform .8s cubic-bezier(.2,.9,.3,1),opacity .6s}
+.card.fly-in{transform:translateY(-10px) rotate(-1deg);box-shadow:0 18px 60px rgba(0,0,0,0.6)}
 
-/* Projects continuous flow */
-#projects-marquee{position:relative}
-#projects-marquee::before{content:''; position:absolute; inset:0; pointer-events:none;}
-#projects-marquee{animation:marquee 22s linear infinite}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-40%)} }
+/* marquee-like project stream */
+#project-stream{display:flex;gap:12px;align-items:center;overflow:hidden;padding:10px;border-radius:10px}
+.project{min-width:240px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px)}
+.project a{color:inherit;text-decoration:none}
+@keyframes streamMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.project-stream .inner{display:flex;gap:12px;animation:streamMove 20s linear infinite}
 
-/* Hover glows on interactive items */
-a.project:hover, .gallery-item:hover, .quicklinks a:hover{transform:translateY(-6px) scale(1.02); transition:transform .3s}
+/* cute appearing effects */
+.home-section, .card{opacity:0;transform:translateY(8px)}
+.home-section.show, .card.show{opacity:1;transform:none}
 
-/* Fullscreen lightbox close button */
-#lb-close{position:absolute; top:18px; right:20px; background:none; border:0; color:#fff; font-size:22px; cursor:pointer}
-
-/* small responsive niceties */
-@media (max-width:480px){ .rainbow{font-size:28px} .hero{padding:20px}}
+/* small aesthetic touches */
+.nav-btn:hover{transform:translateY(-4px);box-shadow:0 8px 30px rgba(0,0,0,0.4)}
+.map-link{display:inline-block;margin-top:6px}
