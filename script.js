@@ -1,73 +1,83 @@
-// script.js - interactions & live counters
+// script.js — interactions, animations, age counter, gallery, projects
+document.addEventListener('DOMContentLoaded', ()=>{
+  // initial reveal
+  document.querySelector('.home-section').classList.add('show');
+  document.querySelectorAll('.card').forEach((c,i)=>setTimeout(()=>c.classList.add('show'), 220*i));
 
-// Lightbox gallery
-const lightbox = document.getElementById('lightbox');
-const lbImg = document.getElementById('lb-img');
-const lbClose = document.getElementById('lb-close');
-Array.from(document.querySelectorAll('.gallery-item')).forEach(img=>{
-  img.addEventListener('click', ()=>{
-    lbImg.src = img.src; lightbox.classList.remove('hidden');
+  // nav scrolling with floating-paper effect
+  document.querySelectorAll('.nav-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const t= document.querySelector(btn.dataset.target);
+      if(t){
+        // cute floating effect
+        t.classList.add('fly-in');
+        setTimeout(()=>t.classList.remove('fly-in'), 900);
+        t.scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    })
   })
-});
-lbClose.addEventListener('click', ()=> lightbox.classList.add('hidden'));
-lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) lightbox.classList.add('hidden') });
 
-// Projects detail popup
-const projects = document.querySelectorAll('.project');
-const pd = document.getElementById('project-detail');
-const pdTitle = document.getElementById('pd-title');
-const pdDesc = document.getElementById('pd-desc');
-const pdClose = document.getElementById('close-detail');
-projects.forEach(p=> p.addEventListener('click', (e)=>{
-  e.preventDefault(); pdTitle.textContent = p.dataset.title; pdDesc.textContent = p.dataset.desc; pd.classList.remove('hidden');
-}));
-pdClose.addEventListener('click', ()=> pd.classList.add('hidden'));
+  // logo zoom/glow toggle after intro
+  const logo = document.getElementById('logo');
+  setTimeout(()=>{
+    logo.classList.add('glow');
+    setInterval(()=>{logo.classList.toggle('glow')}, 2800);
+  },1800);
 
-// Live age counter from AD dob (2004-10-23) and show running time from BS start in label
-(function liveAge(){
-  // Use AD date time as source for accuracy. You provided: 2004-10-23 AD and BS equivalent 2061-07-07 11:17 pm
-  const dobAD = new Date('2004-10-23T23:17:00'); // local time assumed; adjust if needed
-  const ageEl = document.getElementById('age-live');
-
-  function update(){
+  // age counter (live) — uses AD birth timestamp but shows BS as text
+  const birth = new Date('2004-10-23T23:17:00'); // approximate: 11:17 pm (AD)
+  const ageEl = document.getElementById('age-counter');
+  function updateAge(){
     const now = new Date();
-    let diff = now - dobAD; if(diff<0) diff=0;
-    const msInSec=1000, msInMin=msInSec*60, msInHour=msInMin*60, msInDay=msInHour*24;
-    const years = Math.floor(diff / (msInDay*365.2425));
-    const days = Math.floor((diff % (msInDay*365.2425)) / msInDay);
-    const hours = Math.floor((diff % msInDay) / msInHour);
-    const minutes = Math.floor((diff % msInHour) / msInMin);
-    const seconds = Math.floor((diff % msInMin) / msInSec);
-    ageEl.innerHTML = `Age since 2061-07-07 BS (2004-10-23 AD): <strong>${years}y ${days}d ${hours}h ${minutes}m ${seconds}s</strong>`;
-    ageEl.classList.add('glow');
+    let diff = now - birth; if(diff<0) diff=0;
+    const ms = diff;
+    const sec = Math.floor(ms/1000)%60;
+    const min = Math.floor(ms/60000)%60;
+    const hr = Math.floor(ms/3600000)%24;
+    const days = Math.floor(ms/86400000);
+    const years = Math.floor(days/365.2425);
+    const remDays = days - Math.floor(years*365.2425);
+    ageEl.textContent = `${years}y ${remDays}d ${hr}h ${min}m ${sec}s`;
   }
-  update(); setInterval(update, 1000);
-})();
+  updateAge(); setInterval(updateAge,1000);
 
-// Logo initial animation control (small extra: zoom out/in after first appear)
-const logo = document.getElementById('logo');
-logo.addEventListener('animationend', ()=>{
-  // after entry animation, briefly zoom out/in to add life
-  logo.animate([
-    {transform:'scale(1)'}, {transform:'scale(1.06)'}, {transform:'scale(1)'}
-  ], {duration:1400, easing:'ease-in-out'});
-});
+  // project stream population — sample entries (user can replace)
+  const projects = [
+    {title:'Audit project — Tally', url:'#', desc:'1 year audit with Tally & Excel'},
+    {title:'Website UI', url:'#', desc:'Single page aesthetic portfolio'},
+    {title:'Data cleanup', url:'#', desc:'Excel automations & reports'}
+  ];
+  const stream = document.getElementById('project-stream');
+  const inner = document.createElement('div'); inner.className='inner';
+  // duplicate sequence to create seamless loop
+  const makeProjectEl = (p)=>{const el=document.createElement('div');el.className='project';el.innerHTML=`<a href="${p.url}"><h4>${p.title}</h4><p>${p.desc}</p></a>`;return el}
+  projects.forEach(p=>inner.appendChild(makeProjectEl(p)));
+  projects.forEach(p=>inner.appendChild(makeProjectEl(p)));
+  stream.appendChild(inner);
 
-// Search bar quick filter (simple client-side filter over project tiles and gallery captions)
-const search = document.getElementById('site-search');
-search.addEventListener('input', ()=>{
-  const q = search.value.trim().toLowerCase();
-  document.querySelectorAll('.project').forEach(p=>{
-    p.style.display = p.textContent.toLowerCase().includes(q) ? '' : 'none';
+  // gallery — load all images from folder (user will replace with real uploads)
+  const galleryGrid = document.getElementById('gallery-grid');
+  const galleryImgs = ['images/image.jpg','images/image.jpg','images/image.jpg','images/image.jpg'];
+  galleryImgs.forEach(src=>{
+    const img=document.createElement('img');img.src=src;img.alt='gallery';
+    img.addEventListener('click', ()=>openLightbox(src));
+    galleryGrid.appendChild(img);
   });
-  document.querySelectorAll('.gallery-item').forEach(g=>{
-    g.style.display = g.alt.toLowerCase().includes(q) ? '' : '';
-  });
-});
 
-// Tiny accessibility: keyboard close lightbox & project detail
-document.addEventListener('keydown', (e)=>{
-  if(e.key==='Escape'){
-    lightbox.classList.add('hidden'); pd.classList.add('hidden');
-  }
+  // lightbox
+  const lb = document.getElementById('lightbox'); const lbImg = document.getElementById('lb-img');
+  const lbClose = document.getElementById('lb-close');
+  function openLightbox(src){lbImg.src=src;lb.style.display='flex';lb.setAttribute('aria-hidden','false')}
+  function closeLightbox(){lb.style.display='none';lbImg.src='';lb.setAttribute('aria-hidden','true')}
+  lbClose.addEventListener('click', closeLightbox);
+  lb.addEventListener('click', (e)=>{ if(e.target===lb) closeLightbox(); });
+
+  // small search placeholder behavior
+  document.querySelector('.search-wrap input').addEventListener('keydown', (e)=>{
+    if(e.key==='Enter'){ alert('Search is a placeholder — replace with real search if desired.'); }
+  });
+
+  // clickable photos in biography
+  document.querySelectorAll('.bio-photos img').forEach(i=>i.addEventListener('click', ()=>openLightbox(i.src)));
+
 });
