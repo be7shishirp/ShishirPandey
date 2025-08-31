@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -8,106 +8,273 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero" id="home">
-    <div class="logo-wrap">
-      <!-- Put your uploaded logo at images/logo.png -->
-      <img id="logo" src="images/logo.png" alt="Logo" />
-    </div>
-
-    <div class="search-profile">
-      <input id="site-search" placeholder="Search projects or images..." />
-      <!-- small profile icon inside search -->
-      <img id="search-pic" src="images/profile.png" alt="profile"/>
-    </div>
-
-    <h1 id="name" class="rainbow">Shishir Pandey</h1>
-    <p class="tagline">lovely. crazy. professional. explorer. — thanks for visiting ✨</p>
-
-    <nav class="quicklinks">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
+  <header class="hero">
+    <nav class="nav">
+      <ul>
+        <li><button data-target="#home" class="nav-btn">Home</button></li>
+        <li><button data-target="#bio" class="nav-btn">Biography</button></li>
+        <li><button data-target="#address" class="nav-btn">Address</button></li>
+        <li><button data-target="#edu" class="nav-btn">Education</button></li>
+        <li><button data-target="#skills" class="nav-btn">Skills</button></li>
+        <li><button data-target="#work" class="nav-btn">Work</button></li>
+        <li><button data-target="#contact" class="nav-btn">Contact</button></li>
+      </ul>
     </nav>
+
+    <div id="home" class="home-section">
+      <!-- LOGO / profile image -->
+      <div class="logo-wrap">
+        <img id="logo" src="images/image.jpg" alt="logo" />
+      </div>
+
+      <!-- Search bar with small profile picture inside -->
+      <div class="search-wrap">
+        <img class="search-pic" src="images/image.jpg" alt="profile-small" />
+        <input placeholder="Search projects, photos or places..." />
+      </div>
+
+      <!-- Rainbow animated heading -->
+      <h1 id="rainbow-heading">Shishir Pandey</h1>
+
+      <p class="sub">lovely + crazy + professional — thanks for visiting.</p>
+
+      <div class="home-brief">
+        <p id="brief-text">I am Shishir — designer, auditor & explorer. Click navigation buttons for animated scrolling and floating-paper transitions.</p>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section id="about" class="panel">
-      <h2>About Me</h2>
-      <div class="about-grid">
-        <div class="bio-card">
-          <h3>Shishir Pandey</h3>
-          <p><strong>Date of Birth (BS):</strong> 2061-07-07 BS (11:17 PM)</p>
-          <p><strong>Date of Birth (AD):</strong> 2004-10-23 AD</p>
-          <p id="age-live" class="age-live">Calculating live age…</p>
-
-          <h4>Address</h4>
-          <p><strong>Birth place:</strong> Tansen, Palpa (near Syangja) — see map below.</p>
-          <p><strong>Home town:</strong> Kaligandaki, Harmichour, Gulmi</p>
-          <p><strong>Currently:</strong> Butwal</p>
-
-          <div class="map-links">
-            <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tansen+Palpa+Nepal">View Birth Place on Google Maps</a>
-            <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kaligandaki+Harmichour+Gulmi+Nepal">View Home Town on Google Maps</a>
-            <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Butwal+Nepal">View Current City on Google Maps</a>
+    <section id="bio" class="card bio">
+      <h2>Biography</h2>
+      <div class="bio-grid">
+        <div class="bio-left">
+          <p><strong>Name:</strong> Shishir Pandey</p>
+          <p><strong>Date of birth (BS):</strong> 2061-07-07 BS 11:17 pm</p>
+          <p><strong>Date of birth (AD):</strong> 2004-10-23</p>
+          <p><strong>Age (live):</strong> <span id="age-counter">calculating…</span></p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/shishirpnde" target="_blank">@shishirpnde</a></p>
+          <p><strong>Email:</strong> <a href="mailto:be7ccrp@gmail.com">be7ccrp@gmail.com</a></p>
+        </div>
+        <div class="bio-right">
+          <div class="bio-photos">
+            <!-- Add your uploaded images in the images/ folder. -->
+            <img src="images/image.jpg" alt="bio-photo-1" />
+            <img src="images/image.jpg" alt="bio-photo-2" />
           </div>
-
-          <h4>Education</h4>
-          <ul>
-            <li>SEE (10): GPA 3.70 — Optional: Math & Account — Passed 2076 BS</li>
-            <li>SLC / 12: GPA 3.08 — Account & Business Study — Passed 2081 BS</li>
-          </ul>
-
-          <h4>Skills & Experience</h4>
-          <p>Skills: Reading, exploring, accounting basics (Tally), Excel, auditing tools.</p>
-          <p>Experience: ~1 year audit work (Tally / Excel / Audit files)</p>
-
-          <p>Instagram: <a target="_blank" href="https://www.instagram.com/shishirpnde">@shishirpnde</a></p>
-        </div>
-
-        <div class="about-images">
-          <!-- Add your uploaded images here (work images, birthplace pictures, hometown, butwal etc.) -->
-          <img src="images/about1.jpg" alt="about pic 1"/>
-          <img src="images/about2.jpg" alt="about pic 2"/>
-          <img src="images/about3.jpg" alt="about pic 3"/>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="panel">
-      <h2>Projects</h2>
-      <div class="projects-marquee" id="projects-marquee">
-        <!-- Each project tile links to a details panel or external page (placeholder href) -->
-        <a class="project" href="#" data-title="Audit Report" data-desc="1 year audit, Tally & Excel">Audit Report — Tally & Excel</a>
-        <a class="project" href="#" data-title="Business Sheet" data-desc="Accounting and business study work">Business Sheet — Accounting</a>
-        <a class="project" href="#" data-title="Explorer Writeup" data-desc="Reading & exploring projects">Explorer Writeup — Reading</a>
-        <a class="project" href="#" data-title="Design Sample" data-desc="UI/visual samples & photos">Design Sample — Visuals</a>
-      </div>
+    <section id="address" class="card address">
+      <h2>Address & Places</h2>
+      <div class="places">
+        <div class="place">
+          <h3>Birth place</h3>
+          <p>Palpa (Tension Syangja)</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Palpa+Nepal">View on Map</a>
+          <img src="images/image.jpg" alt="palpa" />
+        </div>
 
-      <div id="project-detail" class="project-detail hidden">
-        <button id="close-detail">Close</button>
-        <h3 id="pd-title"></h3>
-        <p id="pd-desc"></p>
+        <div class="place">
+          <h3>Home town</h3>
+          <p>Kaligandaki Harmichour, Gulmi</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kaligandaki+Harmichour+Gulmi">View on Map</a>
+          <img src="images/image.jpg" alt="harmichour" />
+        </div>
+
+        <div class="place">
+          <h3>Currently</h3>
+          <p>Butwal</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Butwal+Nepal">View on Map</a>
+          <img src="images/image.jpg" alt="butwal" />
+        </div>
       </div>
     </section>
 
-    <section id="gallery" class="panel">
+    <section id="edu" class="card edu">
+      <h2>Education</h2>
+      <ul>
+        <li>SEE (10) — GPA 3.70 (optional: Math & Accounting) — Passed 2076</li>
+        <li>SLC (12) — GPA 3.08 — Passed 2081 (Account & Business Studies)</li>
+      </ul>
+      <p class="edu-more">More details available on request.</p>
+    </section>
+
+    <section id="skills" class="card skills">
+      <h2>Skills</h2>
+      <p>Reading · Exploring · Tally · Excel · Audit basics</p>
+    </section>
+
+    <section id="work" class="card work">
+      <h2>Work & Experience</h2>
+      <p><strong>Experience:</strong> ~1 year (audit, tally, Excel, audit file handling)</p>
+
+      <div class="project-stream" id="project-stream">
+        <!-- Projects will be added here and flow continuously -->
+      </div>
+    </section>
+
+    <section id="gallery" class="card gallery">
       <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <!-- Put all uploaded gallery pictures here -->
-        <img class="gallery-item" src="images/gallery1.jpg" alt="gallery1" />
-        <img class="gallery-item" src="images/gallery2.jpg" alt="gallery2" />
-        <img class="gallery-item" src="images/gallery3.jpg" alt="gallery3" />
-        <img class="gallery-item" src="images/gallery4.jpg" alt="gallery4" />
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Thumbnails (click to open full) -->
       </div>
     </section>
 
-    <section id="contact" class="panel">
+    <section id="contact" class="card contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:be7ccrp@gmail.com">be7ccrp@gmail.com</a></p>
-      <p>Instagram: <a target="_blank" href="https://www.instagram.com/shishirpnde">@shishirpnde</a></p>
+      <p>Email me at <a href="mailto:be7ccrp@gmail.com">be7ccrp@gmail.com</a></p>
     </section>
   </main>
+
+  <!-- Lightbox for images -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lb-close">✕</button>
+    <img id="lb-img" src="" alt="full" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Shishir Pandey — Portfolio</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <ul>
+        <li><button data-target="#home" class="nav-btn">Home</button></li>
+        <li><button data-target="#bio" class="nav-btn">Biography</button></li>
+        <li><button data-target="#address" class="nav-btn">Address</button></li>
+        <li><button data-target="#edu" class="nav-btn">Education</button></li>
+        <li><button data-target="#skills" class="nav-btn">Skills</button></li>
+        <li><button data-target="#work" class="nav-btn">Work</button></li>
+        <li><button data-target="#contact" class="nav-btn">Contact</button></li>
+      </ul>
+    </nav>
+
+    <div id="home" class="home-section">
+      <!-- LOGO / profile image -->
+      <div class="logo-wrap">
+        <img id="logo" src="images/image.jpg" alt="logo" />
+      </div>
+
+      <!-- Search bar with small profile picture inside -->
+      <div class="search-wrap">
+        <img class="search-pic" src="images/image.jpg" alt="profile-small" />
+        <input placeholder="Search projects, photos or places..." />
+      </div>
+
+      <!-- Rainbow animated heading -->
+      <h1 id="rainbow-heading">Shishir Pandey</h1>
+
+      <p class="sub">lovely + crazy + professional — thanks for visiting.</p>
+
+      <div class="home-brief">
+        <p id="brief-text">I am Shishir — designer, auditor & explorer. Click navigation buttons for animated scrolling and floating-paper transitions.</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="bio" class="card bio">
+      <h2>Biography</h2>
+      <div class="bio-grid">
+        <div class="bio-left">
+          <p><strong>Name:</strong> Shishir Pandey</p>
+          <p><strong>Date of birth (BS):</strong> 2061-07-07 BS 11:17 pm</p>
+          <p><strong>Date of birth (AD):</strong> 2004-10-23</p>
+          <p><strong>Age (live):</strong> <span id="age-counter">calculating…</span></p>
+          <p><strong>Instagram:</strong> <a href="https://www.instagram.com/shishirpnde" target="_blank">@shishirpnde</a></p>
+          <p><strong>Email:</strong> <a href="mailto:be7ccrp@gmail.com">be7ccrp@gmail.com</a></p>
+        </div>
+        <div class="bio-right">
+          <div class="bio-photos">
+            <!-- Add your uploaded images in the images/ folder. -->
+            <img src="images/image.jpg" alt="bio-photo-1" />
+            <img src="images/image.jpg" alt="bio-photo-2" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="address" class="card address">
+      <h2>Address & Places</h2>
+      <div class="places">
+        <div class="place">
+          <h3>Birth place</h3>
+          <p>Palpa (Tension Syangja)</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Palpa+Nepal">View on Map</a>
+          <img src="images/image.jpg" alt="palpa" />
+        </div>
+
+        <div class="place">
+          <h3>Home town</h3>
+          <p>Kaligandaki Harmichour, Gulmi</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Kaligandaki+Harmichour+Gulmi">View on Map</a>
+          <img src="images/image.jpg" alt="harmichour" />
+        </div>
+
+        <div class="place">
+          <h3>Currently</h3>
+          <p>Butwal</p>
+          <a class="map-link" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Butwal+Nepal">View on Map</a>
+          <img src="images/image.jpg" alt="butwal" />
+        </div>
+      </div>
+    </section>
+
+    <section id="edu" class="card edu">
+      <h2>Education</h2>
+      <ul>
+        <li>SEE (10) — GPA 3.70 (optional: Math & Accounting) — Passed 2076</li>
+        <li>SLC (12) — GPA 3.08 — Passed 2081 (Account & Business Studies)</li>
+      </ul>
+      <p class="edu-more">More details available on request.</p>
+    </section>
+
+    <section id="skills" class="card skills">
+      <h2>Skills</h2>
+      <p>Reading · Exploring · Tally · Excel · Audit basics</p>
+    </section>
+
+    <section id="work" class="card work">
+      <h2>Work & Experience</h2>
+      <p><strong>Experience:</strong> ~1 year (audit, tally, Excel, audit file handling)</p>
+
+      <div class="project-stream" id="project-stream">
+        <!-- Projects will be added here and flow continuously -->
+      </div>
+    </section>
+
+    <section id="gallery" class="card gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Thumbnails (click to open full) -->
+      </div>
+    </section>
+
+    <section id="contact" class="card contact">
+      <h2>Contact</h2>
+      <p>Email me at <a href="mailto:be7ccrp@gmail.com">be7ccrp@gmail.com</a></p>
+    </section>
+  </main>
+
+  <!-- Lightbox for images -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lb-close">✕</button>
+    <img id="lb-img" src="" alt="full" />
+  </div>
+
+  <script src="script.js"></script>
+</body>
+  </html>  </main>
 
   <!-- Fullscreen lightbox for gallery -->
   <div id="lightbox" class="lightbox hidden">
