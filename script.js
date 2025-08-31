@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   // gallery — load all images from folder (user will replace with real uploads)
   const galleryGrid = document.getElementById('gallery-grid');
-  const galleryImgs = ['images/-1837825668.jpg','images/124304408.jpg','images/204272677.jpg','images/742519375.jpg','images/1848877252.jpg','images/1837825668.jpg','images/359982719.jpg','images/1151310230.jpg'];
+  const galleryImgs = ['-1837825668.jpg','-124304408.jpg','-204272677.jpg','-742519375.jpg','-1848877252.jpg','1837825668.jpg','-359982719.jpg','-1151310230.jpg'];
   galleryImgs.forEach(src=>{
     const img=document.createElement('img');img.src=src;img.alt='gallery';
     img.addEventListener('click', ()=>openLightbox(src));
