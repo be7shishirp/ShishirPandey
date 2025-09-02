@@ -1,6 +1,5 @@
 /* index.css — baseline layout and variables */
 :root{
-  --bg: #0f1226;
   --card: rgba(255,255,255,0.04);
   --accent: #7ef2ff;
 }
