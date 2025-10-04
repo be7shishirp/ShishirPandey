@@ -1,0 +1,4 @@
+.live-age{display:flex;flex-direction:column;gap:8px;padding:12px;background:rgba(255,255,255,0.02);border-radius:10px}
+.age-row{font-weight:700;font-size:20px}
+.time-small{font-size:18px}
+.age-summary{opacity:0.85;font-size:14px;margin-top:6px}
