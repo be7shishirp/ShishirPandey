@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Shishir Pandey — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="home.css" />
+  <link rel="stylesheet" href="liveage.css" />
+  <link rel="stylesheet" href="idcard.css" />
+  <link rel="stylesheet" href="address.css" />
+  <link rel="stylesheet" href="biography.css" />
+  <link rel="stylesheet" href="education.css" />
+</head>
+<body>
+  <div id="bg-3d"></div>
+
+  <main id="site">
+    <!-- Home / Hero -->
+    <section id="home" class="panel">
+      <div class="container">
+        <h2 class="rainbow-heading">Shishir Pandey</h2>
+        <h1 class="big-title">Welcome to my website..</h1>
+        <p class="subtitle">Greatest aesthetic appearing transition and effect</p>
+
+        <div id="socials" class="socials">
+          <button class="social" data-link="https://www.instagram.com/shishirpnde">Instagram<br><small>@shishirpnde</small></button>
+          <button class="social" data-link="https://www.shiship.com.np">Website<br><small>shiship.com.np</small></button>
+          <button class="social" data-link="https://www.tiktok.com/octshishir">TikTok<br><small>@octshishir</small></button>
+        </div>
+
+        <div id="idcard-wrap">
+          <div id="idcard" class="idcard">
+            <div class="front">
+              <img src="https://placehold.co/240x300?text=Photo" alt="photo">
+              <h3>Shishir Pandey</h3>
+              <p>DOB: 2061-07-07 BS / 2004-10-23 AD</p>
+              <p>Palpa, Tansen</p>
+            </div>
+            <div class="back">
+              <h4>Important</h4>
+              <p>Astrology highlights &amp; rasifal</p>
+            </div>
+          </div>
+          <div class="id-controls">
+            <button id="rotate-toggle">Rotate 360</button>
+            <button id="zoom-toggle">Zoom</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CV (paper-change animation) -->
+    <section id="cv" class="panel paper-panel">
+      <div class="paper">
+        <header>
+          <h2>Curriculum Vitae</h2>
+          <p>Shishir Pandey — Professional CV</p>
+        </header>
+        <article id="cv-content">
+          <!-- CV will be filled dynamically by JS (from data in script.js) -->
+        </article>
+        <div class="cv-actions">
+          <button id="view-cv">View full CV</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Biography and Live Age -->
+    <section id="bio" class="panel paper-panel">
+      <div class="paper">
+        <h2>Biography</h2>
+        <div class="bio-grid">
+          <div class="bio-left">
+            <p><strong>Name:</strong> Shishir Pandey</p>
+            <p><strong>Date of birth (BS):</strong> 2061-07-07</p>
+            <p><strong>Date of birth (AD):</strong> 2004-10-23</p>
+            <p><strong>Astrology:</strong> <em>Sun sign, moon sign and more — short summary below.</em></p>
+            <div id="astrology-summary">Loading astrology summary... (placeholder)</div>
+          </div>
+          <div class="bio-right">
+            <h3>Live Age</h3>
+            <div id="live-age" class="live-age">
+              <div class="age-row"><span id="years">0</span> years</div>
+              <div class="age-row"><span id="months">0</span> months</div>
+              <div class="age-row"><span id="days">0</span> days</div>
+              <div class="age-row time-small"><span id="hours">0</span> : <span id="minutes">00</span> : <span id="seconds">00</span></div>
+              <div class="age-summary">Total days: <span id="total-days">0</span> — Total hours: <span id="total-hours">0</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Address / Maps -->
+    <section id="address" class="panel paper-panel">
+      <div class="paper">
+        <h2>Places</h2>
+        <div class="places">
+          <div class="place">
+            <h4>Birth place</h4>
+            <p>Palpa, Tansen, Syangja</p>
+            <img src="https://placehold.co/400x200?text=Palpa" alt="Palpa">
+            <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/Palpa+Tansen">View on map</a>
+          </div>
+          <div class="place">
+            <h4>Hometown</h4>
+            <p>Gulmi — Kaligandaki corridor, Harmichour</p>
+            <img src="https://placehold.co/400x200?text=Gulmi" alt="Gulmi">
+            <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/Gulmi+Nepal">View on map</a>
+          </div>
+          <div class="place">
+            <h4>Currently in</h4>
+            <p>Butwal</p>
+            <img src="https://placehold.co/400x200?text=Butwal" alt="Butwal">
+            <a class="map-btn" target="_blank" href="https://www.google.com/maps/search/Butwal+Nepal">View on map</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="panel paper-panel">
+      <div class="paper">
+        <h2>Education</h2>
+        <ul class="edu-list">
+          <li>SEE — 2076 BS — Account (Optional Math) — GPA: 3.70</li>
+          <li>SLC — Accounting and Business Studies — 2081 BS — GPA: 3.08</li>
+          <li>BBS — 2nd Year — Currently running</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Skills & Experience -->
+    <section id="skills" class="panel paper-panel">
+      <div class="paper">
+        <h2>Skills & Experience</h2>
+        <div class="skills-grid">
+          <div class="skill">
+            <h4>Skills</h4>
+            <ul>
+              <li>MS Word</li>
+              <li>Excel</li>
+              <li>Tally</li>
+            </ul>
+          </div>
+          <div class="skill">
+            <h4>Experience</h4>
+            <ul>
+              <li>1+ year auditing</li>
+              <li>Internships and practical accounting work</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Shishir Pandey — Aesthetic Portfolio</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+  <script src="home.js"></script>
+  <script src="liveage.js"></script>
+  <script src="idcard.js"></script>
+  <script src="address.js"></script>
+  <script src="biography.js"></script>
+  <script src="education.js"></script>
+</body>
+  </html>
