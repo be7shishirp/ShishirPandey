@@ -1,0 +1,5 @@
+Notes:
+- These files are a starting, complete and working baseline. Copy each code block into separate files with the filenames shown.
+- The live-age uses Gregorian math with the provided AD birth date/time. If you want strict Nepali (BS) live counting, I can integrate a BS calendar converter or an API — but that needs either a library or a server/API.
+- Daily rasifal and astrology require an external data source or manual content.
+- Replace placeholder images with your real photos.
