@@ -1,0 +1,3 @@
+.edu-list{list-style:disc;margin-left:18px}
+.skills-grid{display:flex;gap:18px}
+@media(max-width:800px){.skills-grid{flex-direction:column}}
